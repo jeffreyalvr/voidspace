@@ -1,11 +1,16 @@
-const ActionButton = ({ text, click }) => {
+const ActionButton = ({ text, click, icon }) => {
   return (
     <button
       role="button"
-      onClick={() => click(text)}
-      className="bg-[var(--action-accent-color)] hover:bg-[var(--action-accent-color)]/75 w-auto h-[60px] md:h-[80px] px-8 rounded-4xl sm:text-xl md:text-2xl text-white cursor-pointer"
+      onClick={click}
+      className="flex flex-row justify-center items-center px-12 w-fit h-[70px] rounded-4xl sm:text-xl md:text-2xl text-white cursor-pointer bg-[var(--action-accent-color)] hover:bg-[var(--action-accent-color)]/75 "
+      title={text}
     >
-      {text}
+      {icon ? (
+        <img src={icon} className="w-[40px] h-[40px]" alt={text} />
+      ) : (
+        text
+      )}
     </button>
   );
 };

@@ -13,8 +13,10 @@ const Home = () => {
     setFocusTime(time);
   };
 
+  const zen = (time) => {};
+
   return (
-    <section className="flex flex-col gap-6 p-6 md:p-4 w-full sm:w-fit h-auto border-black">
+    <section className="flex flex-col gap-6 p-6 md:p-4 w-full md:w-fit h-auto border-black">
       <div className="flex flex-row gap-4 items-center">
         <h2 className="text-2xl">Tempo de foco</h2>
         <span className="font-light text-[var(--fg-color)]">
@@ -32,7 +34,7 @@ const Home = () => {
         ))}
       </div>
       <div className="flex flex-row gap-4 pt-4 items-center justify-center">
-        <ActionButton text="Iniciar" />
+        <ActionButton text="Iniciar" click={zen} />
       </div>
     </section>
   );
