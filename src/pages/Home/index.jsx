@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import Button from "@/components/Header/Button";
-import ActionButton from "@/components/Header/Button/ActionButton";
+import Button from "@/components/Button";
+import ActionButton from "@/components/Button/ActionButton";
 
 const Home = () => {
   const [focusTime, setFocusTime] = useState(5);

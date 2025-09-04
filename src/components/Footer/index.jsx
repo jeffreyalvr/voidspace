@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <footer>
-      <span className="text-center w-full inline-block text-lg sm:text-xl text-[var(--fg-color)]">
+      <span className="text-center w-full inline-block text-md text-[var(--fg-color)]">
         feito por{" "}
         <a
           href="https://jeffreyalvr.dev"
