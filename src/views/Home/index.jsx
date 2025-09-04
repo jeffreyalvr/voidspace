@@ -3,7 +3,7 @@ import { useState } from "react";
 import Button from "@/components/Button";
 import ActionButton from "@/components/Button/ActionButton";
 
-const Home = () => {
+const Home = ({ focusing, focusEvent }) => {
   const [focusTime, setFocusTime] = useState(5);
 
   const selectableTimes = [5, 10, 15, 25, 30, 45, 60, 90, 120, 180, 240, 300];
@@ -12,8 +12,6 @@ const Home = () => {
     if (time < 5 || time > 300) return;
     setFocusTime(time);
   };
-
-  const zen = (time) => {};
 
   return (
     <section className="flex flex-col gap-6 p-6 md:p-4 w-full md:w-fit h-auto border-black">
@@ -34,7 +32,7 @@ const Home = () => {
         ))}
       </div>
       <div className="flex flex-row gap-4 pt-4 items-center justify-center">
-        <ActionButton text="Iniciar" click={zen} />
+        <ActionButton text="Iniciar" click={focusEvent} />
       </div>
     </section>
   );

@@ -5,7 +5,7 @@
       "@/*": ["*"],
       "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
-      "@pages/*": ["pages/*"]
+      "@views/*": ["views/*"]
     }
   },
   "include": ["src"]
