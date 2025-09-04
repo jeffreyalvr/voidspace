@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Madimi One";
+  src: url("../assets/fonts/MadimiOne.ttf");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --accent-color: #323244;
+  --action-accent-color: #737394;
+  --header-color: #090929;
+  --bg-color: #17172e;
+  --fg-color: #4a4a4e;
+}
+
+::selection {
+  color: #fff;
+  background: var(--accent-color);
+  -webkit-text-fill-color: #fff !important;
+}
+
+html,
+body {
+  background: var(--bg-color);
+  min-height: 100%;
+  height: 100dvh;
+  font-family: "Madimi One", sans-serif;
+  color: #fff;
+}
