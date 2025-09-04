@@ -3,7 +3,7 @@ import { useState } from "react";
 import Button from "@/components/Button";
 import ActionButton from "@/components/Button/ActionButton";
 
-const Home = ({ focusing, focusEvent }) => {
+const TimeSelector = ({ focusing, focusEvent }) => {
   const [focusTime, setFocusTime] = useState(5);
 
   const selectableTimes = [5, 10, 15, 25, 30, 45, 60, 90, 120, 180, 240, 300];
@@ -38,4 +38,4 @@ const Home = ({ focusing, focusEvent }) => {
   );
 };
 
-export default Home;
+export default TimeSelector;

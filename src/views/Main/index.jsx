@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Home from "@views/Home";
+import TimeSelector from "@views/TimeSelector";
 import Zen from "@views/Zen";
 
 const Main = () => {
@@ -15,7 +15,7 @@ const Main = () => {
       {focusing ? (
         <Zen />
       ) : (
-        <Home focusing={focusing} focusEvent={handleFocusEvent} />
+        <TimeSelector focusing={focusing} focusEvent={handleFocusEvent} />
       )}
     </main>
   );
