@@ -1,12 +1,38 @@
-# React + Vite
+#### Nome do Projeto: Voidspace
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Informações gerais
 
-Currently, two official plugins are available:
+### Descrição
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Projeto de timer digital.
 
-## Expanding the ESLint configuration
+### Tecnologias utilizadas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. React JS;
+2. Tailwind;
+3. Zustand;
+4. LocalStorage.
+
+## Acesso direto ao projeto em produção
+
+Para testar o projeto em produção, acesse o seguinte link hospedado na plataforma Vercel:<br>
+https://voidspace-tasks.vercel.app/
+
+## Acesso por meio de instalação local
+
+1. Baixe o projeto pelo GitHub ou realize um clone do mesmo (Necessário possuir o `Node` e `npm` instalados em sua máquina de forma global).
+2. Navegue até a pasta raiz do projeto e abra-a utilizando um terminal ou prompt de comando de sua escolha.
+
+Agora utilize os seguintes comandos para suas operações:
+
+1. Instalação dos pacotes utilizados pela aplicação:
+
+`npm install`
+
+2. Iniciação do servidor:
+
+`npm run start`
+
+3. Por fim, acesse a aplicação global por meio da seguinte URL:
+
+`localhost:5173`
