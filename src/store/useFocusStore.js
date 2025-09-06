@@ -14,6 +14,10 @@ const useFocusStore = create((set, get) => {
     selectedFocusTime: lastUsedFocusTime,
     focusStatus: Statuses.UNSET,
     remainingTime: lastUsedFocusTime * 60,
+    enableSounds: true,
+
+    toggleEnableSounds: () =>
+      set((state) => ({ enableSounds: !state.enableSounds })),
 
     setSelectedFocusTime: (time) => {
       localStorage.setItem("lastUsedFocusTime", time);
@@ -36,7 +40,7 @@ const useFocusStore = create((set, get) => {
         focusStatus: Statuses.STOPPED,
         remainingTime: selectedFocusTime * 60, // reset to full time
       });
-      playSound(sfx_alert);
+      if (enableSounds) playSound(sfx_alert);
     },
 
     tick: () => {
@@ -45,7 +49,7 @@ const useFocusStore = create((set, get) => {
         set({ remainingTime: remainingTime - 1 });
       } else if (focusStatus === Statuses.RUNNING && remainingTime === 0) {
         set({ focusStatus: Statuses.STOPPED });
-        playSound(sfx_alert);
+        if (enableSounds) playSound(sfx_alert);
       }
     },
 
@@ -54,6 +58,8 @@ const useFocusStore = create((set, get) => {
       set({
         remainingTime: selectedFocusTime * 60,
         focusStatus: Statuses.RUNNING,
+        // FIXME: Adicionar efeito ao resetar o timer
+        // if(enableSounds) playSound(sfx_reset);
       });
     },
   };

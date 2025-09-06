@@ -4,7 +4,7 @@ import useFocusStore from "@store/useFocusStore";
 
 import { Statuses } from "@constants";
 
-import ActionButton from "@components/Button/ActionButton";
+import { ActionButton } from "@components/Button";
 
 import icon_start from "@assets/icons/start.svg";
 import icon_pause from "@assets/icons/pause.svg";

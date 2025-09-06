@@ -1,9 +1,8 @@
 import useFocusStore from "@store/useFocusStore";
 
-import { Statuses } from "@constants";
+import { Button, ActionButton } from "@components/Button";
 
-import Button from "@components/Button";
-import ActionButton from "@components/Button/ActionButton";
+import icon_sounds from "@assets/icons/sounds.svg";
 
 const TimeSelector = () => {
   const {
@@ -11,6 +10,8 @@ const TimeSelector = () => {
     selectedFocusTime,
     setSelectedFocusTime,
     startTimer,
+    enableSounds,
+    toggleEnableSounds,
   } = useFocusStore();
 
   const handleFocusTime = (time) => {
@@ -39,6 +40,17 @@ const TimeSelector = () => {
         ))}
       </div>
       <div className="flex flex-row gap-4 pt-4 items-center justify-center">
+        <Button
+          icon={icon_sounds}
+          invertIconColor
+          title={
+            enableSounds
+              ? "Desabilitar efeitos sonoros"
+              : "Habilitar efeitos sonos"
+          }
+          toggled={enableSounds}
+          click={() => toggleEnableSounds()}
+        />
         <ActionButton text="Iniciar" click={() => startTimer()} />
       </div>
     </section>
