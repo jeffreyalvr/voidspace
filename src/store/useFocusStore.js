@@ -10,7 +10,7 @@ const useFocusStore = create((set, get) => {
     parseInt(localStorage.getItem("lastUsedFocusTime"), 10) || 5;
 
   return {
-    selectableValues: [1, 5, 10, 15, 25, 30, 45, 60, 90, 120, 180, 240, 300],
+    selectableValues: [5, 10, 15, 25, 30, 45, 60, 90, 120, 180, 240, 300],
     selectedFocusTime: lastUsedFocusTime,
     focusStatus: Statuses.UNSET,
     remainingTime: lastUsedFocusTime * 60,
