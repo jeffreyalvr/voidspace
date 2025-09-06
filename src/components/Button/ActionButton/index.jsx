@@ -1,4 +1,4 @@
-const ActionButton = ({ text, click, icon }) => {
+const ActionButton = ({ text, click, icon, invertIconColor }) => {
   return (
     <button
       role="button"
@@ -7,7 +7,11 @@ const ActionButton = ({ text, click, icon }) => {
       title={text}
     >
       {icon ? (
-        <img src={icon} className="w-[40px] h-[40px]" alt={text} />
+        <img
+          src={icon}
+          className={`w-[40px] h-[40px] ${invertIconColor ? "invert" : ""}`}
+          alt={text}
+        />
       ) : (
         text
       )}

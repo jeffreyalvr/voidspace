@@ -1,22 +1,16 @@
-import { useState } from "react";
+import useFocusStore from "@store/useFocusStore";
+
+import { Statuses } from "@constants";
 
 import TimeSelector from "@views/TimeSelector";
 import Zen from "@views/Zen";
 
 const Main = () => {
-  const [focusing, setFocusing] = useState(false);
-
-  const handleFocusEvent = () => {
-    setFocusing(true);
-  };
+  const { focusStatus } = useFocusStore();
 
   return (
     <main className="flex flex-col gap-4 w-full h-full md:p-10 items-center">
-      {focusing ? (
-        <Zen />
-      ) : (
-        <TimeSelector focusing={focusing} focusEvent={handleFocusEvent} />
-      )}
+      {focusStatus !== Statuses.UNSET ? <Zen /> : <TimeSelector />}
     </main>
   );
 };

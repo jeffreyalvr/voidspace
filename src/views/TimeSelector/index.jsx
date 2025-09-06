@@ -1,16 +1,20 @@
-import { useState } from "react";
+import useFocusStore from "@store/useFocusStore";
 
-import Button from "@/components/Button";
-import ActionButton from "@/components/Button/ActionButton";
+import { Statuses } from "@constants";
 
-const TimeSelector = ({ focusing, focusEvent }) => {
-  const [focusTime, setFocusTime] = useState(5);
+import Button from "@components/Button";
+import ActionButton from "@components/Button/ActionButton";
 
-  const selectableTimes = [5, 10, 15, 25, 30, 45, 60, 90, 120, 180, 240, 300];
+const TimeSelector = () => {
+  const {
+    selectableValues,
+    selectedFocusTime,
+    setSelectedFocusTime,
+    startTimer,
+  } = useFocusStore();
 
   const handleFocusTime = (time) => {
-    if (time < 5 || time > 300) return;
-    setFocusTime(time);
+    setSelectedFocusTime(time);
   };
 
   return (
@@ -18,21 +22,24 @@ const TimeSelector = ({ focusing, focusEvent }) => {
       <div className="flex flex-row gap-4 items-center">
         <h2 className="text-2xl">Tempo de foco</h2>
         <span className="font-light text-[var(--fg-color)]">
-          / {focusTime >= 60 ? `${focusTime / 60} h` : `${focusTime} min`}
+          /{" "}
+          {selectedFocusTime >= 60
+            ? `${selectedFocusTime / 60} h`
+            : `${selectedFocusTime} min`}
         </span>
       </div>
       <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-2 w-full">
-        {selectableTimes.map((time, i) => (
+        {selectableValues.map((time, i) => (
           <Button
             key={i}
             text={time}
-            toggled={focusTime}
-            click={handleFocusTime}
+            toggled={selectedFocusTime === time}
+            click={() => handleFocusTime(time)}
           />
         ))}
       </div>
       <div className="flex flex-row gap-4 pt-4 items-center justify-center">
-        <ActionButton text="Iniciar" click={focusEvent} />
+        <ActionButton text="Iniciar" click={() => startTimer()} />
       </div>
     </section>
   );

@@ -16,6 +16,8 @@
   --bg-color: #17172e;
   --fg-color: #4a4a4e;
   --title-color: #987496;
+  --red-color: rgb(157, 96, 96);
+  --green-color: rgb(126, 157, 96);
 }
 
 ::selection {
