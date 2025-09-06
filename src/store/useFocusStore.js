@@ -10,7 +10,7 @@ const useFocusStore = create((set, get) => {
     parseInt(localStorage.getItem("lastUsedFocusTime"), 10) || 5;
 
   return {
-    selectableValues: [5, 10, 15, 25, 30, 45, 60, 90, 120, 180, 240, 300],
+    selectableValues: [1, 5, 10, 15, 25, 30, 45, 60, 90, 120, 180, 240, 300],
     selectedFocusTime: lastUsedFocusTime,
     focusStatus: Statuses.UNSET,
     remainingTime: lastUsedFocusTime * 60,
@@ -25,30 +25,38 @@ const useFocusStore = create((set, get) => {
       set({
         selectedFocusTime: time,
         remainingTime: time * 60,
+        focusStatus: Statuses.UNSET,
       });
     },
 
     setFocusStatus: (status) => set({ focusStatus: status }),
 
     startTimer: () => {
-      set({ focusStatus: Statuses.RUNNING });
+      set({
+        focusStatus: Statuses.RUNNING,
+      });
     },
 
     stopTimer: () => {
       const { selectedFocusTime, enableSounds } = get();
       set({
         focusStatus: Statuses.STOPPED,
-        remainingTime: selectedFocusTime * 60, // reset to full time
+        remainingTime: selectedFocusTime * 60,
       });
       if (enableSounds) playSound(sfx_alert);
     },
 
     tick: () => {
-      const { focusStatus, remainingTime } = get();
+      const { focusStatus, remainingTime, selectedFocusTime, enableSounds } =
+        get();
+
       if (focusStatus === Statuses.RUNNING && remainingTime > 0) {
         set({ remainingTime: remainingTime - 1 });
       } else if (focusStatus === Statuses.RUNNING && remainingTime === 0) {
-        set({ focusStatus: Statuses.STOPPED });
+        set({
+          focusStatus: Statuses.STOPPED,
+          remainingTime: selectedFocusTime * 60,
+        });
         if (enableSounds) playSound(sfx_alert);
       }
     },
