@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import useFocusStore from "@store/useFocusStore";
 
 import { Statuses } from "@constants";
+import { displayTimeFormat } from "@utils/displayTimeFormat";
 
 import { ActionButton } from "@components/Button";
 
@@ -10,6 +11,7 @@ import icon_start from "@assets/icons/start.svg";
 import icon_pause from "@assets/icons/pause.svg";
 import icon_restart from "@assets/icons/restart.svg";
 import icon_stop from "@assets/icons/stop.svg";
+import { use } from "react";
 
 const Zen = () => {
   const {
@@ -30,24 +32,18 @@ const Zen = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    if (focusStatus === Statuses.STOPPED || focusStatus === Statuses.UNSET) {
+      document.title = "voidspace";
+    } else if (focusStatus === Statuses.RUNNING) {
+      document.title = `voidspace - ${displayTimeFormat(remainingTime)}`;
+    } else if (focusStatus === Statuses.PAUSED) {
+      document.title = "voidspace - (Pausado)";
+    }
+  }, [focusStatus, remainingTime]);
+
   const handleShowTimeSelector = () => {
     setFocusStatus(Statuses.UNSET);
-  };
-
-  const displayTimeFormat = (totalSeconds) => {
-    if (isNaN(totalSeconds) || totalSeconds < 0) totalSeconds = 0;
-
-    const hrs = Math.floor(totalSeconds / 3600);
-    const mins = Math.floor((totalSeconds % 3600) / 60);
-    const secs = totalSeconds % 60;
-
-    const paddedHrs = String(hrs).padStart(2, "0");
-    const paddedMins = String(mins).padStart(2, "0");
-    const paddedSecs = String(secs).padStart(2, "0");
-
-    return hrs > 0
-      ? `${paddedHrs}:${paddedMins}:${paddedSecs}` // HH:MM:SS
-      : `${paddedMins}:${paddedSecs}`; // MM:SS
   };
 
   return (
