@@ -5,7 +5,10 @@
       "@/*": ["*"],
       "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
-      "@views/*": ["views/*"]
+      "@views/*": ["views/*"],
+      "@store/*": ["store/*"],
+      "@constants/*": ["constants/*"],
+      "@utils/*": ["utils/*"]
     }
   },
   "include": ["src"]
