@@ -3,7 +3,7 @@ const ActionButton = ({ text, click, icon, invertIconColor }) => {
     <button
       role="button"
       onClick={click}
-      className="flex flex-row justify-center items-center px-12 w-fit h-[70px] rounded-4xl sm:text-xl md:text-2xl text-white cursor-pointer bg-[var(--action-accent-color)] hover:bg-[var(--action-accent-color)]/75 "
+      className="flex flex-row justify-center items-center px-6 sm:px-12 w-fit h-[70px] rounded-4xl sm:text-xl md:text-2xl text-white cursor-pointer bg-[var(--action-accent-color)] hover:bg-[var(--action-accent-color)]/75 "
       title={text}
     >
       {icon ? (
