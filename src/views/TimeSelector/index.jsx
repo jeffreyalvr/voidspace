@@ -46,12 +46,12 @@ const TimeSelector = () => {
           title={
             enableSounds
               ? "Desabilitar efeitos sonoros"
-              : "Habilitar efeitos sonos"
+              : "Habilitar efeitos sonoros"
           }
           toggled={enableSounds}
-          click={() => toggleEnableSounds()}
+          click={toggleEnableSounds}
         />
-        <ActionButton text="Iniciar" click={() => startTimer()} />
+        <ActionButton text="Iniciar" click={startTimer} />
       </div>
     </section>
   );

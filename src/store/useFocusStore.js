@@ -35,7 +35,7 @@ const useFocusStore = create((set, get) => {
     },
 
     stopTimer: () => {
-      const { selectedFocusTime } = get();
+      const { selectedFocusTime, enableSounds } = get();
       set({
         focusStatus: Statuses.STOPPED,
         remainingTime: selectedFocusTime * 60, // reset to full time
